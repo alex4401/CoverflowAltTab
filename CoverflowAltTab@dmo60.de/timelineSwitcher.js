@@ -54,6 +54,7 @@ Switcher.prototype = {
     _createPreviews: function() {
         let monitor = this._updateActiveMonitor();
         let currentWorkspace = this._manager.workspace_manager.get_active_workspace();
+
         this._previews = [];
         for (let i in this._windows) {
             let metaWin = this._windows[i];
@@ -111,7 +112,7 @@ Switcher.prototype = {
     },
 
     _updatePreviews: function(direction) {
-        if(this._previews.length == 0)
+        if(!this._previews || this._previews.length == 0)
             return;
 
         let monitor = this._updateActiveMonitor();
