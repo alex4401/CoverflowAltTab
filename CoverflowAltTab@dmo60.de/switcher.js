@@ -504,6 +504,12 @@ Switcher.prototype = {
             // window title and icon
             this._windowTitle.hide();
             this._applicationIconBox.hide();
+            this._windowTitle.destroy();
+            this._applicationIconBox.destroy();
+            for (let i in this._previews) {
+                let preview = this._previews[i];
+                preview.destroy();
+            }
 
             // panels
             let panels = this.getPanels();
